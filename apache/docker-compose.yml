@@ -1,0 +1,10 @@
+version: '3.9'
+services:
+  apache-service:
+    container_name: apache
+    image: httpd:latest
+    ports:
+      - "80:80"
+    volumes:
+      - /your/local/folder:/usr/local/apache2/htdocs
+    restart: 'unless-stopped'

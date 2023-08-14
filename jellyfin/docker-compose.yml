@@ -1,0 +1,15 @@
+version: '3.5'
+services:
+  jellyfin:
+    image: jellyfin/jellyfin
+    container_name: jellyfin
+    network_mode: 'host'
+    volumes:
+      - /your/local/folder/jellyfin-config:/config
+      - /your/local/folder/jellyfin-cache:/cache
+      - /your/local/folder:/media
+    restart: 'unless-stopped'
+    ports:
+      - "8200:8096"
+    environment:
+      - TZ=Europe/Madrid

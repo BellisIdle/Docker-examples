@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  minecraft:
+    container_name: publicmcserver
+    image: itzg/minecraft-server
+    ports:
+      - "25565:25565"
+    network_mode: "host"
+    volumes:
+      - "/your/local/folder/minecraftdata:/data"
+      - "/your/local/folder/plugins:/plugins"
+    environment:
+      EULA: "TRUE"
+      TYPE: "PAPER"
+      OPS: "your-name-in-mc"
+      ENABLE_WHITELIST: "TRUE"
+      ENFORCE_WHITELIST: "TRUE"
+    tty: TRUE
+    stdin_open: TRUE
+    restart: unless-stopped
+
+volumes:
+  minecraftdata:
+    external: TRUE
